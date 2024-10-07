@@ -4,7 +4,6 @@ This project is a real-time drowsiness detection application using a pre-trained
 
 ## Table of Contents
 - [Features](#features)
-- [Project Structure](#project-structure)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Jupyter Notebook](#jupyter-notebook)
@@ -18,10 +17,6 @@ This project is a real-time drowsiness detection application using a pre-trained
 - Flask web server for live video streaming through a web browser.
 - Alarm sound that triggers when drowsiness is detected for a set duration.
 - Interactive front-end with controls to start/pause the video feed.
-
-## Project Structure
-
-drowsiness-detection-app/ │ ├── app.py # The Flask application code ├── drowsiness_detection.ipynb # Jupyter Notebook for experimentation and training ├── requirements.txt # Python dependencies ├── README.md # Project documentation (this file) ├── best.pt # YOLOv5 model file (add this to .gitignore if large) ├── mixkit-alarm-clock-beep-988.wav # Alarm sound file (add to .gitignore or store in static) ├── static/ │ ├── css/ │ │ └── styles.css # (Optional) Custom stylesheets │ └── images/ │ └── placeholder.jpg # Placeholder image for testing ├── templates/ │ └── index.html # HTML template for the Flask app └── .gitignore # Git ignore file
 
 
 ## Installation
