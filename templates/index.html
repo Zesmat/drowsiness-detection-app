@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOLOv5 Video Stream</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        img {
+            border: 5px solid #333;
+            border-radius: 10px;
+            width: 80%;   /* Makes the video responsive */
+            max-width: 720px;  /* Limits the width on large screens */
+        }
+
+        .info {
+            margin-top: 20px;
+            color: #666;
+        }
+
+        #videoToggle {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #videoToggle:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>YDrowsiness Detection Model</h1>
+        <!-- Video stream -->
+        <img id="videoFeed" src="{{ url_for('video_feed') }}" alt="Video Feed">
+        <div class="info">
+            <p>Press the button below to toggle the video feed.</p>
+        </div>
+
+        <!-- Toggle Button -->
+        <button id="videoToggle">Pause Video</button>
+    </div>
+
+    <script>
+        let videoFeed = document.getElementById("videoFeed");
+        let videoToggle = document.getElementById("videoToggle");
+        let isPlaying = true;
+
+        // Add click event listener to the button
+        videoToggle.addEventListener("click", function() {
+            if (isPlaying) {
+                // Stop the video by removing the src attribute
+                videoFeed.src = "";
+                videoToggle.textContent = "Play Video";
+            } else {
+                // Start the video by resetting the src attribute
+                videoFeed.src = "{{ url_for('video_feed') }}";
+                videoToggle.textContent = "Pause Video";
+            }
+            isPlaying = !isPlaying;  // Toggle state
+        });
+    </script>
+</body>
+</html>
