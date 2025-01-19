@@ -9,7 +9,7 @@ import pygame
 app = Flask(__name__)
 
 # Load the YOLOv5 model using PyTorch
-model = torch.hub.load('ultralytics/yolov5', 'custom', path='D:/deployment/best.pt', force_reload=True)
+model = torch.hub.load('ultralytics/yolov5', 'custom', path=r'best.pt', force_reload=True)
 
 # Initialize Pygame mixer for sound control
 pygame.mixer.init()
@@ -104,4 +104,4 @@ def video_feed():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5001)
